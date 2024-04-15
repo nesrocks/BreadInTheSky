@@ -1,0 +1,32 @@
+// XOR //
+Description: Flip bits (flips a bit using a 1 bit and copy the bit using a 0 bit)
+Operator: ^
+Example:
+    0101
+XOR 0011
+  = 0110
+Verbose explanation: Flips specific bits by XORing with a number that is only zeroes except for the bit(s) you want flipped.
+
+
+// AND //
+Description: Turn off bits (turn off using a 0 bit and copy the bit using a 1 bit)
+Operator: &
+Example:
+    0101
+AND 0011
+  = 0001
+Verbose explanation: The second number's 1 bits act as a mask to the first number's bits.
+
+
+// OR //
+Description: turn on bits (turn on using a 1 bit, and copy the bit using a 0 bit)
+Operator: |
+Example:
+   0101
+OR 0011
+ = 0111
+Verbose explanation: This "adds" the bits together. It combines both numbers so that everything becomes 1, except when both are 0.
+
+// << or >> bitshift
+Example:
+8 << 1 = 16

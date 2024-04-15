@@ -1,0 +1,5 @@
+function BtScrPokeRomUp() {
+	g.rompokeinterval++;
+
+
+}

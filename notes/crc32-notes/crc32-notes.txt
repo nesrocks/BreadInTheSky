@@ -1,0 +1,54 @@
+As @MrSmith42 says, provided you don't need to keep the file length constant, a "collision" (the name given for two input messages that result in the same hash) can be easily calculated.
+
+It's fiddly, with lots of bit twiddling, but very quick.
+
+Suppose the original file is, in hex:
+
+1122334455667788
+Then its CRC-32 checksum would be 0x9118E1C2 using the standard CRC32 polynomial. If the algorithm in use is not standard, it can be substituted. I'll stick with the standard for demonstration purposes.
+
+First, make your file changes as necessary. Eg, I change a byte in the middle:
+
+11223344FF667788
+Step one to restore the CRC is to pad the file with 4 zero bytes:
+
+11223344FF66778800000000
+The CRC checksum is now 0x6BBE83C9.
+
+Step two, XOR the two checksums:
+
+0x9118E1C2 XOR 0x6BBE83C9 = 0xFAA6620B
+Step three, bit reverse the result:
+
+Bit reverse of 0xFAA6620B = 0xD046655F
+Step four, and this is a bit funky so see below, perform an inverse CRC32 calculation:
+
+0xD046655F * inverse(x32) mod crc_poly = 0xe4c7d232
+Step five, bit reverse the result, byte-wise this time:
+
+0xe4c7d232 bit reversed byte-wise = 0x27E34B4C
+Step six, replace the padded bytes with the result
+
+11223344FF66778827E34B4C
+Voila, the CRC32 checksum value is now back to 0x9118E1C2.
+
+Easiest way I know of to do the inverse CRC calc is with the BitVector package in Python:
+
+>>> import BitVector as bv
+>>> poly = bv.BitVector(intVal = 0x104C11DB7) # "standard" CRC32 polynomial
+>>> inv = bv.BitVector(intVal = 0x100000000).gf_MI(poly, 32)
+>>> k = 0xD046655F
+>>> p = bv.BitVector(intVal = k).gf_multiply_modular(inv, poly, 32)
+>>> print(p.getHexStringFromBitVector())
+e4c7d232
+This algorithm is by Redditor /u/supersaw7 published in this thread. I've not come across a better one, despite a simpler version being tantalisingly possible.
+
+share
+improve this answer
+edited May 3 at 0:19
+answered Jan 14 '18 at 10:11
+
+Heath Raftery
+2,01077 silver badges1717 bronze badges
+That's awesome, it seems like it will work. I got it working up to step 6.I don't understand what should be done to bit-reverse? byte-wise. . – Cool Pie Jan 14 '18 at 11:25 
+Nvm, figured it out. You had to reverse the bits per-byte. bytes([int('{:08b}'.format(v)[::-1], 2) for v in binascii.unhexlify(format(0xe4c7d232, 'x'))]) – Cool Pie Jan 14 '18 at 12:22

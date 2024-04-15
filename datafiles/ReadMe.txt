@@ -1,0 +1,58 @@
+changelog
+- version 0.12
+	- fixed typos in readme and about
+- version 0.11
+	- added copyright information for third party trademarks
+- version 0.1
+	- first public release
+
+--------------------
+- BREAD IN THE SKY -
+-       BITS       -
+--------------------
+
+
+A PICK AXE PETE™ LEVEL EDITOR
+FOR THE MAGNAVOX™ ODYSSEY 2™
+AND VIDEOPAC™ / VP PLUS
+
+
+CREATED BY NESROCKS 2019
+- VISIT NESROCKS.COM -
+
+
+VERSION 0.12
+
+-----------------------------
+MAGNAVOX~, PICK AXE PETE~
+ODYSSEY 2~ VIDEOPAC~ AND 
+VIDEOPAC G7000~ ARE
+THIRD PARTY TRADEMARKS OF
+PHILIPS~ ALL RIGHTS RESERVED
+-----------------------------
+
+
+--------------------
+-    HOW TO USE    -
+--------------------
+
+SIMPLY LOAD A ROM
+AND USE THE LEFT MOUSE BUTTON
+TO SET / REMOVE LINES
+
+EMPTY LINES ON THE MIDDLE COLUMN
+MAY RESULT IN AN UNBEATABLE LEVEL
+
+THE EDITOR FORCES A CRC32 HASH
+WHEN SAVING THE ROM SO O2EM
+PLAYS IT AT THE CORRECT SPEED
+
+SORRY NO UNDO YET SO PLEASE
+KEEP BACKUPS OF YOUR ROMS
+
+
+COMPATIBLE WITH:
+PICK AXE PETE 4K     PAL 
+PICK AXE PETE 8K VP+ PAL 
+PICK AXE PETE 8K VP+ NTSC
+ROMS EDITED USING BITS   
