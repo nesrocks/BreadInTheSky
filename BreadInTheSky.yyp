@@ -162,7 +162,6 @@
     {"id":{"name":"bitwise cheat reference","path":"notes/bitwise cheat reference/bitwise cheat reference.yy",},},
     {"id":{"name":"crc32-notes","path":"notes/crc32-notes/crc32-notes.yy",},},
     {"id":{"name":"compatibility_report_170919_140857857","path":"notes/compatibility_report_170919_140857857/compatibility_report_170919_140857857.yy",},},
-    {"id":{"name":"ClipboardBitmap","path":"extensions/ClipboardBitmap/ClipboardBitmap.yy",},},
   ],
   "RoomOrderNodes": [
     {"roomId":{"name":"rm_init","path":"rooms/rm_init/rm_init.yy",},},
